@@ -1,13 +1,13 @@
 # CA675-Assignment_1
 
-# Submitted By:
-# Name: Rahul Rajendra Sidhapurker
-# Student Number: 20211401
+### Submitted By:
+### Name: Rahul Rajendra Sidhapurker
+### Student Number: 20211401
 
 
-# Tasks Completed
+## Tasks Completed
 
-# 1. Data Fetching from stack exchange
+## 1. Data Fetching from stack exchange
 
 Data was fetched from stack exchage using the SQL. Top 200,000 posts were fetched in four csv files, since stackexchange only allows 50000 posts to be fetched at once.
 
@@ -25,11 +25,11 @@ select top 50000 * from posts where posts.ViewCount < 112523 order by posts.View
 select top 50000 * from posts where posts.ViewCount < 66243 order by posts.ViewCount desc
 select top 50000 * from posts where posts.ViewCount < 47290 order by posts.ViewCount desc
 ```
-# 2. Cleaning and merging data in python
+## 2. Cleaning and merging data in python
 
 csv files fetched from stack exchange are now cleaned by removing new lines, tab space and HTML tags. These are further joined using append function.
 
-# 3. Loading the data into HDFS 
+## 3. Loading the data into HDFS 
 
 The result single csv file is now uploaded to GCP via WinScp software. This file was futher moved into HDFS file location.
 
@@ -37,7 +37,7 @@ The result single csv file is now uploaded to GCP via WinScp software. This file
 hdfs dfs -put /home/rahul.sidhapurker2/stack_exchange_final.csv /input/FINAL_DF.csv
 ```
 
-# 4. ETL in Pig
+## 4. ETL in Pig
 
 The following pig script was run to 
    1.load the CSV file
@@ -53,7 +53,7 @@ cleaned_data = filter required_data by (OwnerUserId is not null) and (Score is n
 
 store cleaned_data into '/output/cleaned_data' using org.apache.pig.piggybank.storage.CSVExcelStorage(',');
 ```
-# 5. Hive Queries to find Top 10 users with different conditions
+## 5. Hive Queries to find Top 10 users with different conditions
 
 ```sql
 --TOP 10 POSTS BY SCORE
@@ -73,7 +73,7 @@ select COUNT (DISTINCT OwnerUserId)
 from buz
 WHERE (Body LIKE '%hadoop%' OR Title LIKE '%hadoop%' OR Tags LIKE '%hadoop%');
 ```
-# 6. Calculation of per user TF-IDF for top 10 users
+## 6. Calculation of per user TF-IDF for top 10 users
 
 Hive mall is used to calculate TF-IDF. The documentaion of hivemall [TF-IDF Term Weighting Hivemall User Manual](https://hivemall.incubator.apache.org/userguide/ft_engineering/tfidf.html) and [TFIDF Calculation](https://github.com/myui/hivemall/wiki/TFIDF-calculation) has been used to write the code. 
 
