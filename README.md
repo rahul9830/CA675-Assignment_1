@@ -1,8 +1,8 @@
 # CA675-Assignment_1
 
-### Submitted By:
-### Name: Rahul Rajendra Sidhapurker
-### Student Number: 20211401
+##### Submitted By:
+##### Name: Rahul Rajendra Sidhapurker
+##### Student Number: 20211401
 
 
 ## Tasks Completed
